@@ -1,0 +1,34 @@
+New log file opened at Fri Jan 06 19:28:11 CET 2017 by 8160@BSB-PC
+Taking next connection to: 56179
+New client attempting to connect on port: 56180-56179
+  Address = /192.168.0.102:56179
+This client on port 56180 has uuid da6f6de6-df74-408c-94ad-fbcabc80bf86 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-da6f6de6-df74-408c-94ad-fbcabc80bf86
+Taking next connection to: 56179
+New client attempting to connect on port: 56199-56179
+  Address = /192.168.0.102:56179
+Handshake exception on socket: 56199
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.net.SocketException: Software caused connection abort: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 56179
+New client attempting to connect on port: 56200-56179
+  Address = /192.168.0.102:56179
+This client on port 56200 has uuid 294159fb-85cf-4221-9501-a4adcc0366ee configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-da6f6de6-df74-408c-94ad-fbcabc80bf86, play-fork-run-294159fb-85cf-4221-9501-a4adcc0366ee
+Taking next connection to: 56179
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56179

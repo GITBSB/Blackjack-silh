@@ -1,0 +1,20 @@
+@(user: models.User)(implicit request: RequestHeader, messages: Messages, webJarAssets: WebJarAssets)
+
+@main(Messages("home.title"), Some(user)) {
+	
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+
+   	<section id="jumbtronId" class="jumbotron">
+      <div class="container">
+        <h1 id="jumbHead" class="jumbotron-heading">Blackjack</h1>
+        <p class="lead text-muted">This Blackjack Game was created by Alexander Minsch and Benjamin Herrmann.</p>
+        <p>
+          <a href="#" class="btn btn-primary">Rules</a>
+          <a href="#" class="btn btn-secondary">Contact</a>
+        </p>
+      </div>
+    </section>
+    
+
+    <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+}
