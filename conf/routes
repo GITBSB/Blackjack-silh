@@ -3,6 +3,21 @@
 # ~~~~
 
 # Home page
+
+#GET     /                           controllers.BlackjackController.start()
+
+#GET		/blackjack/:command			controllers.BlackjackController.blackjack(command: String)
+
+#GET		/blackjack					controllers.BlackjackController.index()
+
+#GET     /json                       controllers.BlackjackController.json()
+
+#POST	/json/:command				controllers.BlackjackController.jsonCommand(command: String)
+
+#POST	/newPlayer/:playername		controllers.BlackjackController.addNewPlayer(playername: String)
+
+GET    		/rules                			 controllers.BlackjackController.rules
+
 GET         /                                controllers.ApplicationController.index
 GET         /signOut                         controllers.ApplicationController.signOut
 GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)

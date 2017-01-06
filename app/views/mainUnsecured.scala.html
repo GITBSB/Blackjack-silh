@@ -1,5 +1,4 @@
-@(title: String, user: Option[models.User] = None)(content: Html)(implicit request: RequestHeader, messages: Messages, webJarAssets: WebJarAssets)
-
+@(title: String)(content: Html)(implicit webJarAssets: WebJarAssets)
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,13 +15,13 @@
     	
     	<link rel="stylesheet" href="@routes.WebJarAssets.at(webJarAssets.locate("bootstrap.min.css"))">
         <link rel="stylesheet" href="@routes.WebJarAssets.at(webJarAssets.locate("bootstrap-theme.min.css"))">
-        
+    	
         <!-- Latest compiled and minified CSS -->
-    	   <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    		<!-- Optional theme -->
-   		   <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+   		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     	<!-- Latest compiled and minified JavaScript -->
-    	   <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    	 <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     </head>
     <body id="backGround">
     	<p>&nbsp;</p>
@@ -47,16 +46,8 @@
 
 	            </ul>
 	            <ul class="nav navbar-nav navbar-right">
-	              @user.map { u =>
-                      <li><a href="@routes.ApplicationController.index">@u.name</a></li>
-                      @if(u.loginInfo.providerID == com.mohiva.play.silhouette.impl.providers.CredentialsProvider.ID) {
-                          <li><a href="@routes.ChangePasswordController.view">@Messages("change.password")</a></li>
-                      }
-                      <li><a href="@routes.ApplicationController.signOut">@Messages("sign.out")</a></li>
-                  }.getOrElse {
-                      <li><a href="@routes.SignInController.view">@Messages("sign.in")</a></li>
-                      <li><a href="@routes.SignUpController.view">@Messages("sign.up")</a></li>
-                  }
+                  <li><a href="@routes.SignInController.view">Sign in</a></li>
+                  <li><a href="@routes.SignUpController.view">Sign up</a></li>
 	              <li><a href="#">Kontakt</a></li>
 	            </ul>
 	          </div><!--/.nav-collapse -->
