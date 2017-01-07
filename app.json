@@ -5,7 +5,7 @@
     "Play",
     "Silhouette"
   ],
-  "website": "https://github.com/GITBSB/Blackjack-albe",
+  "website": "https://blackjack-albe.herokuapp.com",
   "repository": "https://github.com/GITBSB/Blackjack-albe",
   "success_url": "/",
   "env": {
