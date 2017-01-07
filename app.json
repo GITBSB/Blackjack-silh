@@ -1,12 +1,12 @@
 {
-  "name": "Blackjack-silh",
+  "name": "Blackjack-albe",
   "description": "Seed project to show how Silhouette can be implemented into a Play Framework application.",
   "keywords": [
     "Play",
     "Silhouette"
   ],
-  "website": "https://github.com/GITBSB/Blackjack-silh",
-  "repository": "https://github.com/GITBSB/Blackjack-silh",
+  "website": "https://github.com/GITBSB/Blackjack-albe",
+  "repository": "https://github.com/GITBSB/Blackjack-albe",
   "success_url": "/",
   "env": {
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-scala.git",
