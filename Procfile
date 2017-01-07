@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/play-silhouette-seed -Dhttp.port=${PORT} -Dconfig.resource=${PLAY_CONF_FILE}
+web: target/universal/stage/bin/blackjack-silh -Dhttp.port=${PORT} -Dconfig.resource=${PLAY_CONF_FILE}
