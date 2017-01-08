@@ -25,6 +25,29 @@ class ApplicationController @Inject() (
   implicit val webJarAssets: WebJarAssets)
   extends Controller with I18nSupport {
 
+  def blackjack = silhouette.UserAwareAction.async { implicit request =>
+
+    Future.successful(Ok(views.html.start(webJarAssets)))
+  }
+
+  def start = silhouette.UserAwareAction.async { implicit request =>
+    Future.successful(Ok(views.html.start(webJarAssets)))
+  }
+
+  def rules = silhouette.SecuredAction.async { implicit request =>
+    Future.successful(Ok(views.html.rules(request.identity)))
+  }
+
+  /**
+   * def rules = silhouette.UserAwareAction { implicit request =>
+   * val userName = request.identity match {
+   * case Some(identity) => identity.fullName
+   * case None => "Guest"
+   * }
+   * Ok(views.html.start(userName, webJarAssets))
+   * }
+   */
+
   /**
    * Handles the index action.
    *

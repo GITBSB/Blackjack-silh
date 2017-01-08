@@ -4,40 +4,40 @@
 
 # Home page
 
-#GET     /                           controllers.BlackjackController.start()
-
 #GET		/blackjack/:command			controllers.BlackjackController.blackjack(command: String)
 
-#GET		/blackjack					controllers.BlackjackController.index()
 
-#GET     /json                       controllers.BlackjackController.json()
+#GET     /json                       controllers.ApplicationController.json()
 
-#POST	/json/:command				controllers.BlackjackController.jsonCommand(command: String)
+#POST	/json/:command				controllers.ApplicationController.jsonCommand(command: String)
 
 #POST	/newPlayer/:playername		controllers.BlackjackController.addNewPlayer(playername: String)
 
-GET    		/rules                			 controllers.BlackjackController.rules
+GET		/blackjack							controllers.ApplicationController.blackjack()
+GET         /sign                           controllers.ApplicationController.index
 
-GET         /                                controllers.ApplicationController.index
-GET         /signOut                         controllers.ApplicationController.signOut
-GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
+GET			/								controllers.ApplicationController.start
+GET    		/rules                			controllers.ApplicationController.rules
 
-GET         /signUp                          controllers.SignUpController.view
-POST        /signUp                          controllers.SignUpController.submit
+GET         /signOut                        controllers.ApplicationController.signOut
+GET         /authenticate/:provider         controllers.SocialAuthController.authenticate(provider)
 
-GET         /signIn                          controllers.SignInController.view
-POST        /signIn                          controllers.SignInController.submit
+GET         /signUp                         controllers.SignUpController.view
+POST        /signUp                         controllers.SignUpController.submit
 
-GET         /password/forgot                 controllers.ForgotPasswordController.view
-POST        /password/forgot                 controllers.ForgotPasswordController.submit
-GET         /password/reset/:token           controllers.ResetPasswordController.view(token: java.util.UUID)
-POST        /password/reset/:token           controllers.ResetPasswordController.submit(token: java.util.UUID)
-GET         /password/change                 controllers.ChangePasswordController.view
-POST        /password/change                 controllers.ChangePasswordController.submit
+GET         /signIn                         controllers.SignInController.view
+POST        /signIn                         controllers.SignInController.submit
 
-GET         /account/email/:email            controllers.ActivateAccountController.send(email: String)
-GET         /account/activate/:token         controllers.ActivateAccountController.activate(token: java.util.UUID)
+GET         /password/forgot                controllers.ForgotPasswordController.view
+POST        /password/forgot                controllers.ForgotPasswordController.submit
+GET         /password/reset/:token          controllers.ResetPasswordController.view(token: java.util.UUID)
+POST        /password/reset/:token          controllers.ResetPasswordController.submit(token: java.util.UUID)
+GET         /password/change                controllers.ChangePasswordController.view
+POST        /password/change                controllers.ChangePasswordController.submit
+
+GET         /account/email/:email           controllers.ActivateAccountController.send(email: String)
+GET         /account/activate/:token        controllers.ActivateAccountController.activate(token: java.util.UUID)
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                    controllers.Assets.at(path="/public", file)
-GET         /webjars/*file                   controllers.WebJarAssets.at(file)
+GET         /assets/*file                   controllers.Assets.at(path="/public", file)
+GET         /webjars/*file                  controllers.WebJarAssets.at(file)
