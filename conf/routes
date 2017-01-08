@@ -13,7 +13,7 @@
 
 #POST	/newPlayer/:playername		controllers.BlackjackController.addNewPlayer(playername: String)
 
-GET		/blackjack							controllers.ApplicationController.blackjack()
+#GET			/blackjack						controllers.BlackjackController.blackjack()
 GET         /sign                           controllers.ApplicationController.index
 
 GET			/								controllers.ApplicationController.start
