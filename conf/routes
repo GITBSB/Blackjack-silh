@@ -4,20 +4,20 @@
 
 # Home page
 
-#GET		/blackjack/:command			controllers.BlackjackController.blackjack(command: String)
+GET		/blackjack/:command			controllers.ApplicationController.blackjack(command: String)
 
+GET     /json                       controllers.ApplicationController.json()
 
-#GET     /json                       controllers.ApplicationController.json()
+POST	/json/:command				controllers.ApplicationController.jsonCommand(command: String)
 
-#POST	/json/:command				controllers.ApplicationController.jsonCommand(command: String)
+POST	/newPlayer/:playername		controllers.ApplicationController.addNewPlayer(playername: String)
 
-#POST	/newPlayer/:playername		controllers.BlackjackController.addNewPlayer(playername: String)
-
-#GET			/blackjack						controllers.BlackjackController.blackjack()
 GET         /sign                           controllers.ApplicationController.index
 
 GET			/								controllers.ApplicationController.start
 GET    		/rules                			controllers.ApplicationController.rules
+
+GET  		/blackjack						controllers.ApplicationController.play
 
 GET         /signOut                        controllers.ApplicationController.signOut
 GET         /authenticate/:provider         controllers.SocialAuthController.authenticate(provider)

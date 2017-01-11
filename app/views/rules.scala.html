@@ -1,22 +1,40 @@
 @(user: models.User)(implicit request: RequestHeader, messages: Messages, webJarAssets: WebJarAssets)
 
 @main("Blackjack-rules", Some(user)) {
-	<div class = "container">
-		<div class = "regeln">
-			Blackjack ist ein Kartenspiel, bei dem ein Spieler gegen das Haus oder den Dealer spielt. Jeder Spieler erh�lt Karten mit einem bestimmten Wert. Beispiel: Alle Karten von 2 -10 haben ebendiesen Kartenwert. Eine Herz 5 hat also den Wert 5 und eine Pik 9 hat den Wert 9. Die Spielfarbe der Karte hat absolut keinen Einfluss auf den Kartenwert. Eine Karo 4 und eine Herz 4 haben also beide den Wert 4.
 	
-			Alle Bildkarten im Deck, also Bube, Dame und K�nig haben jeweils den Wert 10. Das Ass ist etwas besonderes, denn es kann zwei Werte haben: Es kann entweder 11 oder 1 z�hlen, je nachdem welche Kombination von Karten der Spieler halt. Beispiel: Bekomm ein Spieler ein Ass und eine 9, wird das Ass als 11 gez�hlt, sodass der Wert beider Karten des Spielers 20 betr�gt (11+9). Erh�lt ein Spieler dagegen eine 3 und ein Ass, kann das Ass auch als 1 z�hlen und der Spieler dann eine weitere Karte vom Dealer erhalten (hit).
-			Werte von Bildkarten und Ass
-			
-			Bildkarten z�hlen 10 und das Ass 1 oder 11. Eine Bildkarte und ein Ass ist ein Blackjack (21).
-			
-			Beim Blackjack besteht das Ziel des Spiels darin, so nah wie m�glich an einen Kartenwert von 21 zu kommen, und zwar ohne diesen Wert zu �berschreiten. Geschieht dies dennoch, haben Sie sich �berkauft und sind �bust�. Sollten Sie die 21 nicht erreichen, m�ssen Sie versuchen, einen h�heren Wert als der Dealer zu erreichen. Beispiel: Ein Spieler erh�lt die Karten 10 & 8 und hat damit 18. Der Dealer hat eine 8 &9 und damit 17. In diesem Beispiel ist der Wert des Spieler sh�her, als der des Dealers. Der Spieler gewinnt.
-			
-			Kurz gesagt: Das Hauptziel beim Blackjack ist es, ein Ass und eine 10 zu erhalten und einen Gesamtwert von 21 zu bekommen.Beim Blackjack k�nnen bis zu 8 Kartendecks verwendet werden. Wichtig zu wissen: Je weniger Kartendecks genutzt werden, desto gr��er ist der Vorteil des Spielers. Umgekehrt gilt, je mehr Decks benutzt werden, desto geringer ist der Vorteil des Spielers gegen�ber dem Dealer. Interessanterweise bieten nicht alle Casinos Blackjack mite in oder zwei Decks an und viele Casinos begrenzen auch die Zahl der Blackjack-Tische.
-			
-			Eins�tze und Gewinne
-			Um Blackjack zu spielen und Karten ausgeteilt zu bekommen, muss der Spieler einen Einsatz t�tigen. Gewinne: Eine Gewinnerhand beim Blackjack wird 1:1 ausgezahlt. Setzt der Spieler also $20 und gewinnt die Hand, bekommt er $40 ausgezahlt � $20 Einsatz und $20 Gewinn. Wen nein Spieler mit den ersten beiden ausgeteilten Karten einen �Blackjack� (ein Ass und eine Karte mit dem Wert 10) erh�lt, betr�gt die Auszahlung 3:2. Beispiel: Ein Spieler setzt $20 und bekommt eine Blackjack-Hand ausgeteilt � die Auszahlung betr�gt dann $50. Bekommt ein Spieler eine gewinnende Blackjack-Hand, wird er sofort ausbezahlt und ist aus dem Spiel. Die einzige Ausnahme ist, wenn die erste offene Karte des Dealers ein Ass oder eine Karte mit dem Wert 10 ist. Hat der Dealer n�mlich ebenfalls einen Blackjack, gilt die Runde als Unentschieden oder �Push�. In diesem Fall erh�lt der Spieler seinen Einsatz zur�ck.
+		<div class = "container">
+			<div class = "regeln">
+				<section id="content">
+				<div class = "basics">
+					<h2>Basics</h2>
+					Blackjack ist ein Kartenspiel, bei dem ein Spieler gegen das Haus oder den Dealer spielt.
+					<br></br>
+					Jeder Spieler erhält Karten mit einem bestimmten Wert. Beispiel: Alle Karten von 2 -10 haben ebendiesen Kartenwert. Eine Herz 5 hat also den Wert 5 und eine Pik 9 hat den Wert 9. Die Spielfarbe der Karte hat absolut keinen Einfluss auf den Kartenwert. Eine Karo 4 und eine Herz 4 haben also beide den Wert 4.
+					<br></br>
+					Alle Bildkarten im Deck, also Bube, Dame und König haben jeweils den Wert 10. Das Ass ist etwas besonderes, denn es kann zwei Werte haben: Es kann entweder 11 oder 1 zählen, je nachdem welche Kombination von Karten der Spieler halt. 
+					<br></br>
+					Beispiel: Bekommt ein Spieler ein Ass und eine 9, wird das Ass als 11 gezählt, sodass der Wert beider Karten des Spielers 20 beträgt (11+9). Erhält ein Spieler dagegen eine 3 und ein Ass, kann das Ass auch als 1 zählen und der Spieler dann eine weitere Karte vom Dealer erhalten (hit). 
+					<br></br>
+					Eine Bildkarte und ein Ass ist ein Blackjack (21).
+				</div>
+				<div class = "howtowin">
+					<h2>How to Win</h2>
+					Beim Blackjack besteht das Ziel des Spiels darin, so nah wie möglich an einen Kartenwert von 21 zu kommen, und zwar ohne diesen Wert zu überschreiten. Geschieht dies dennoch, haben Sie sich überkauft und sind “bust”. Sollten Sie die 21 nicht erreichen, müssen Sie versuchen, einen höheren Wert als der Dealer zu erreichen. Beispiel: Ein Spieler erhält die Karten 10 & 8 und hat damit 18. Der Dealer hat eine 8 &9 und damit 17. In diesem Beispiel ist der Wert des Spieler shöher, als der des Dealers. Der Spieler gewinnt.
+					<br></br>
+					Kurz gesagt: Das Hauptziel beim Blackjack ist es, ein Ass und eine 10 zu erhalten und einen Gesamtwert von 21 zu bekommen.Beim Blackjack können bis zu 8 Kartendecks verwendet werden. Wichtig zu wissen: Je weniger Kartendecks genutzt werden, desto größer ist der Vorteil des Spielers. Umgekehrt gilt, je mehr Decks benutzt werden, desto geringer ist der Vorteil des Spielers gegenüber dem Dealer. Interessanterweise bieten nicht alle Casinos Blackjack mit ein oder zwei Decks an und viele Casinos begrenzen auch die Zahl der Blackjack-Tische.
+				</div>
+				<div class = "eug">
+					<h2>Einsätze und Gewinne</h2>
+					Um Blackjack zu spielen und Karten ausgeteilt zu bekommen, muss der Spieler einen Einsatz tätigen. 
+					<br></br>
+					Gewinne: Eine Gewinnerhand beim Blackjack wird 1:1 ausgezahlt. Setzt der Spieler also $20 und gewinnt die Hand, bekommt er $40 ausgezahlt – $20 Einsatz und $20 Gewinn. 
+					<br></br>
+					Wenn ein Spieler mit den ersten beiden ausgeteilten Karten einen “Blackjack” (ein Ass und eine Karte mit dem Wert 10) erhält, beträgt die Auszahlung 3:2. Beispiel: Ein Spieler setzt $20 und bekommt eine Blackjack-Hand ausgeteilt – die Auszahlung beträgt dann $50. Bekommt ein Spieler eine gewinnende Blackjack-Hand, wird er sofort ausbezahlt und ist aus dem Spiel. 
+					<br></br>
+					Die einzige Ausnahme ist, wenn die erste offene Karte des Dealers ein Ass oder eine Karte mit dem Wert 10 ist. Hat der Dealer nämlich ebenfalls einen Blackjack, gilt die Runde als Unentschieden oder “Push”. In diesem Fall erhält der Spieler seinen Einsatz zurück.
+				</div>
+				</section>
+			</div>
 		</div>
-	</div>
-	<p>&nbsp;</p>
+		<p>&nbsp;</p>
 }

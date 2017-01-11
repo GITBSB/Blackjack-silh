@@ -7,8 +7,14 @@ import com.mohiva.play.silhouette.impl.providers.SocialProviderRegistry
 import play.api.i18n.{ I18nSupport, MessagesApi }
 import play.api.mvc.Controller
 import utils.auth.DefaultEnv
+import play.api.mvc.Action
+
+import de.htwg.blackjack.Blackjack
+import de.htwg.blackjack.entities.impl.Player
 
 import scala.concurrent.Future
+import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
  * The basic application controller.
@@ -25,9 +31,11 @@ class ApplicationController @Inject() (
   implicit val webJarAssets: WebJarAssets)
   extends Controller with I18nSupport {
 
-  def blackjack = silhouette.UserAwareAction.async { implicit request =>
+  var controller = Blackjack.getInstance.getController();
 
-    Future.successful(Ok(views.html.start(webJarAssets)))
+  def blackjack(command: String) = silhouette.SecuredAction.async { implicit request =>
+    Blackjack.getInstance.getTUI().userinputselection(command);
+    Future.successful(Ok(views.html.index(request.identity)))
   }
 
   def start = silhouette.UserAwareAction.async { implicit request =>
@@ -36,6 +44,20 @@ class ApplicationController @Inject() (
 
   def rules = silhouette.SecuredAction.async { implicit request =>
     Future.successful(Ok(views.html.rules(request.identity)))
+  }
+
+  def play = silhouette.SecuredAction.async { implicit request =>
+    Future.successful(Ok(views.html.index(request.identity)))
+  }
+
+  def jsonCommand(command: String) = silhouette.SecuredAction { implicit request =>
+    Blackjack.getInstance.getTUI().userinputselection(command)
+    Ok(controller.json())
+  }
+
+  def addNewPlayer(player: String) = silhouette.SecuredAction { implicit request =>
+    Blackjack.getInstance().getController().addnewPlayer(player);
+    Ok(controller.json())
   }
 
   /**
@@ -66,5 +88,9 @@ class ApplicationController @Inject() (
     val result = Redirect(routes.ApplicationController.index())
     silhouette.env.eventBus.publish(LogoutEvent(request.identity, request))
     silhouette.env.authenticatorService.discard(request.authenticator, result)
+  }
+
+  def json = Action {
+    Ok(controller.json())
   }
 }
