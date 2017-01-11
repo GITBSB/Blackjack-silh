@@ -8,9 +8,9 @@ GET		/blackjack/:command			controllers.ApplicationController.blackjack(command: 
 
 GET     /json                       controllers.ApplicationController.json()
 
-POST	/json/:command				controllers.ApplicationController.jsonCommand(command: String)
+GET	/json/:command				controllers.ApplicationController.jsonCommand(command: String)
 
-POST	/newPlayer/:playername		controllers.ApplicationController.addNewPlayer(playername: String)
+GET	/newPlayer/:playername		controllers.ApplicationController.addNewPlayer(playername: String)
 
 GET         /sign                           controllers.ApplicationController.index
 
