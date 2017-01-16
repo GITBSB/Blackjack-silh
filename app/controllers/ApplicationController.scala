@@ -93,4 +93,5 @@ class ApplicationController @Inject() (
   def json = Action {
     Ok(controller.json())
   }
+
 }

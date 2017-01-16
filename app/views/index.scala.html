@@ -6,31 +6,99 @@
 <link rel="stylesheet" href='@routes.Assets.at("stylesheets/main.css")'/>
 	
 	<script language="JavaScript">
+
+	var uri = "ws://localhost:9000/socket/"+"@user.name";
+	var websocket;
+	var resetCards = 0;
+	var maxPlayers = 0;
+	
 		window.onload = getCards();
 		
 		function getCards() {
-	 		$.get('/json',
-	 	    	function(data) {
-	 				processData(data);
-      		});
+			websocket = new WebSocket(uri);
+			websocket.onopen = function() { onOpen() }; 
+			websocket.onclose = function() { onClose() };
+			websocket.onmessage = function(evt) { onMessage(evt) };
+			$.get('/socket/'+"@user.name");
+			$.get('/newPlayer/' + "@user.name",
+					function(data) {
+						processData(data);	
+	      		});
+	 		//$.get('/json',
+	 	    	//function(data) {
+	 			//	processData(data);
+      		//});
 		}
-
-
 	 	    	
 		function jsonCommand(command) {
-		$.get('/json/' + command,
-			function(data) {
-				processData(data);
-      		});
+			sendMessage(command+":"+"@user.name");
+		//$.post('/json/' + command,
+			//function(data) {
+			//	processData(data);
+      		//});
 		}
 
 		function jsonNewPlayer() {
 			var name = $("#inputname").val();
+			//sendMessage("newplayer:"+name);
 			$.get('/newPlayer/' + name,
 				function(data) {
 					processData(data);	
       		});
 		}
+
+		function onOpen() {
+			window.alert("CONNECTED");
+			sendMessage("null");
+		}
+
+		function onClose() {
+			window.alert("DISCONNECTED");
+		}
+
+		function onMessage(evt) {
+			if(evt.data == "0" || evt.data == "1" || evt.data == "2") {
+				removePlayer(evt.data);
+			} else {
+				processData(evt.data);
+			}
+		}
+
+		function sendMessage(message) {
+			websocket.send(message);
+		}
+		
+		function removePlayer(index) {
+			$("#playername-player" + index).text("");
+			$("#cardvalue-player" + index).text("");
+			$("#budget-player" + index).text("");
+		}
+		
+	//	window.onload = getCards();
+		
+	//	function getCards() {
+	// 		$.get('/json',
+	 //	    	function(data) {
+	// 				processData(data);
+    //  		});
+	//	}
+
+
+	 	    	
+	//	function jsonCommand(command) {
+	//	$.get('/json/' + command,
+	//		function(data) {
+		//		processData(data);
+      	//	});
+	//	}
+
+		//function jsonNewPlayer() {
+		//	var name = $("#inputname").val();
+		//	$.get('/newPlayer/' + name,
+		//		function(data) {
+		//			processData(data);	
+      //		});
+		//}
 
 		function processData(data) {
 			var json = JSON.parse(data);
@@ -39,6 +107,10 @@
     		// Player Cards
           	var cards = json[1].cards;
           	var players = json[0].players[0].length;
+          	
+          	if(players > maxPlayers) {
+          		maxPlayers = players;
+          	}
           	
           	for (var i = 0; i < players; i++) {
               	if (cards.length > 0) {
@@ -92,7 +164,7 @@
 		      <li class="dropdown">
 		      <a href="#" class="dropdown-toggle" data-toggle="dropdown">File <b class="caret"></b></a>
 		        <ul class="dropdown-menu">
-		          <li><a href="" onclick="jsonCommand('n')">New Game</a></li>
+		          <li><a onclick="jsonCommand('n')">New Game</a></li>
 		          <li class="divider"></li>
 		          <li><a href="" onclick="jsonCommand('q')">Quit</a></li>
 		        </ul>

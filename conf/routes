@@ -19,6 +19,8 @@ GET    		/rules                			controllers.ApplicationController.rules
 
 GET  		/blackjack						controllers.ApplicationController.play
 
+GET         /socket/:playername             controllers.LobbyController.createWebSocket(playername: String)
+
 GET         /signOut                        controllers.ApplicationController.signOut
 GET         /authenticate/:provider         controllers.SocialAuthController.authenticate(provider)
 
